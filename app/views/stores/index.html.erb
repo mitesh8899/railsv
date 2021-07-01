@@ -1,0 +1,20 @@
+<% if notice %>  
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+<h1>Your Pragmatic Catalog</h1>
+<hr>
+<ul class="catalog">
+  <% @products.each do |product| %>
+    <li>
+      <%= image_tag(product.image_url, width: '25%') %>
+      <h2><%= product.title %></h2>
+      <p>
+        <%= sanitize(product.description) %>
+      </p>
+      
+      <div class="price">
+        <%= sprintf("$%0.02f", product.price) %>
+      </div>
+    </li>
+  <% end %>
+</ul>
